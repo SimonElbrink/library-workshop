@@ -1,13 +1,34 @@
 package se.lexicon.libraryworkshop.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+
+@Entity(name = "book_loan")
 
 public class Loan {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false)
     private Long id;
+
     private LocalDate loanDate;
+
+    @Column(name = "concluded")
     private Boolean terminated;
+
+    @ManyToOne(
+            cascade = {CascadeType.REFRESH, CascadeType.PERSIST},
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "fk_library_user_id")
     private LibraryUser loanTaker;
+
+    @ManyToOne(
+            cascade = {CascadeType.REFRESH, CascadeType.PERSIST},
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "fk_book_id")
     private Book book;
 
     public Loan() {

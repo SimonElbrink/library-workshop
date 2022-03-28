@@ -1,11 +1,21 @@
 package se.lexicon.libraryworkshop.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity(name = "library_user")
 public class LibraryUser {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false)
     private Long id;
+
+    @CreationTimestamp
     private LocalDate regDate;
+
     private String name;
     private String email;
 

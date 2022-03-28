@@ -1,12 +1,21 @@
 package se.lexicon.libraryworkshop.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.Period;
 
+@Entity(name = "book")
 public class Book {
-
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name= "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", updatable = false)
     private String id;
+
+    @Column(unique = true)
     private String isbn;
+
     private String title;
     private String description;
     private Boolean available;
