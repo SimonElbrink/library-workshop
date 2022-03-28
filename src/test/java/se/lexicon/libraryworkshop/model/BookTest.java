@@ -4,8 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.time.Period;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,7 +13,7 @@ class BookTest {
     public static final String ISBN = "ISBN-978-3-16-000000-0";
     public static final String TITLE = "A Book-Title";
     public static final String DESCRIPTION = "The book with a empty description";
-    public static final Period MAX_LOAN_DAYS = Period.ofDays(14);
+    public static final Integer MAX_LOAN_DAYS = 14;
 
     private Book testObject;
 

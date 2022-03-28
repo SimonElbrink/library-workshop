@@ -12,27 +12,24 @@ public class Book {
     private Boolean available;
     private Boolean reserved;
     private BigDecimal finePerDay;
-    private Period maxLoanDays;
+    private Integer maxLoanDays;
 
     public Book() {
     }
 
-    public Book(String isbn, String title, String description, Period maxLoanDays) {
+    public Book(String isbn, String title, String description, Integer maxLoanDays) {
         this.isbn = isbn;
         this.title = title;
         this.description = description;
         this.maxLoanDays = maxLoanDays;
     }
 
-    public Book(String id, String isbn, String title, String description, Boolean available, Boolean reserved, BigDecimal finePerDay, Period maxLoanDays) {
+    public Book(String id, String isbn, String title, String description, Boolean available, Boolean reserved, BigDecimal finePerDay, Integer maxLoanDays) {
+        this(isbn, title, description, maxLoanDays);
         this.id = id;
-        this.isbn = isbn;
-        this.title = title;
-        this.description = description;
         this.available = available;
         this.reserved = reserved;
         this.finePerDay = finePerDay;
-        this.maxLoanDays = maxLoanDays;
     }
 
     public String getId() {
@@ -91,11 +88,11 @@ public class Book {
         this.finePerDay = finePerDay;
     }
 
-    public Period getMaxLoanDays() {
+    public Integer getMaxLoanDays() {
         return maxLoanDays;
     }
 
-    public void setMaxLoanDays(Period maxLoanDays) {
+    public void setMaxLoanDays(Integer maxLoanDays) {
         this.maxLoanDays = maxLoanDays;
     }
 
