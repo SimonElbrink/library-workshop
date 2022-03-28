@@ -17,6 +17,7 @@ public class Book {
     private String isbn;
 
     private String title;
+    @Column(length = 1000)
     private String description;
     private Boolean available;
     private Boolean reserved;
@@ -31,6 +32,10 @@ public class Book {
         this.title = title;
         this.description = description;
         this.maxLoanDays = maxLoanDays;
+
+        this.finePerDay = BigDecimal.TEN;
+        this.available = Boolean.TRUE;
+        this.reserved = Boolean.FALSE;
     }
 
     public Book(String id, String isbn, String title, String description, Boolean available, Boolean reserved, BigDecimal finePerDay, Integer maxLoanDays) {
