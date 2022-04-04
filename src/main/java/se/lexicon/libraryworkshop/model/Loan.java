@@ -32,9 +32,12 @@ public class Loan {
     private Book book;
 
     public Loan() {
+        this.loanDate = LocalDate.now();
+        this.terminated = Boolean.FALSE;
     }
 
     public Loan(LibraryUser loanTaker, Book book) {
+        this();
         this.loanTaker = loanTaker;
         this.book = book;
     }
